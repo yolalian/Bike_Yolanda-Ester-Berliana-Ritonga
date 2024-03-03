@@ -1,6 +1,6 @@
 # YOLANDA ESTER BERLIANA RITONGA
 
-## Setup Lingkungan
+## Setup Environment
 Untuk menjalankan aplikasi dashboard ini, pastikan Anda mengikuti langkah-langkah berikut:
 
 1. Buat sebuah environment menggunakan Conda dengan Python versi 3.9 dengan perintah berikut:
