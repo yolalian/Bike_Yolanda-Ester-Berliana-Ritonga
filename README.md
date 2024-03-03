@@ -18,7 +18,7 @@ Untuk menjalankan aplikasi dashboard ini, pastikan Anda mengikuti langkah-langka
 3. Instal paket-paket yang dibutuhkan dengan menggunakan pip:
 
     ```bash
-    pip install numpy pandas scipy matplotlib seaborn jupyter streamlit babel
+    pip install  pandas matplotlib streamlit
     ```
 
 ## Menjalankan Aplikasi Streamlit
