@@ -2,12 +2,13 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 import requests
-from io import StringIO
+from PIL import Image
+from io import BytesIO
 
 # Mengunduh data dari URL CSV
-url = "https://raw.githubusercontent.com/yolalian/Bike_Yolanda-Ester-Berliana-Ritonga/main/dashboard/all_data.csv"
-response = requests.get(url)
-csv_data = StringIO(response.text)
+url_csv = "https://raw.githubusercontent.com/yolalian/Bike_Yolanda-Ester-Berliana-Ritonga/main/dashboard/all_data.csv"
+response_csv = requests.get(url_csv)
+csv_data = StringIO(response_csv.text)
 
 # Load data
 all_df = pd.read_csv(csv_data)
@@ -30,8 +31,13 @@ hourly_usage = all_df.groupby('hr')['cnt'].mean()
 weather_effect = all_df.groupby('weathersit')['cnt'].mean()
 weather_labels = {1: 'Cerah', 2: 'Berawan', 3: 'Hujan Ringan/Salju', 4: 'Hujan Lebat/Salju'}
 
+# Mengambil gambar dari URL
+url_image = "https://github.com/yolalian/Bike_Yolanda-Ester-Berliana-Ritonga/blob/main/dashboard/bike.jpeg?raw=true"
+response_image = requests.get(url_image)
+image = Image.open(BytesIO(response_image.content))
+
 # Tambahkan gambar di sidebar
-st.sidebar.image("bike.jpeg", use_column_width=True, clamp=True)
+st.sidebar.image(image, use_column_width=True, clamp=True)
 
 # Streamlit Dashboard
 st.title('Dashboard Analisis Penggunaan Sepeda')
