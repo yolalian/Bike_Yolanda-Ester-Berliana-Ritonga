@@ -1,10 +1,16 @@
-#import library
 import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
+import requests
+from io import StringIO
+
+# Mengunduh data dari URL CSV
+url = "https://raw.githubusercontent.com/yolalian/Bike_Yolanda-Ester-Berliana-Ritonga/main/dashboard/all_data.csv"
+response = requests.get(url)
+csv_data = StringIO(response.text)
 
 # Load data
-all_df = pd.read_csv("all_data.csv")
+all_df = pd.read_csv(csv_data)
 
 # Menggunakan teknik clustering
 def categorize_traffic_density(cnt):
