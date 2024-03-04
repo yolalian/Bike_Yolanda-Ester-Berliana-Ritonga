@@ -4,6 +4,7 @@ import pandas as pd
 import requests
 from PIL import Image
 from io import BytesIO
+from io import StringIO
 
 # Mengunduh data dari URL CSV
 url_csv = "https://raw.githubusercontent.com/yolalian/Bike_Yolanda-Ester-Berliana-Ritonga/main/dashboard/all_data.csv"
